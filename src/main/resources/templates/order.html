@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.springframework.org/schema/data/jaxb">
+<head>
+    <meta charset="utf-8">
+    <title>HTML5 Contact Form</title><link rel="stylesheet" th:href="@{/css/styles.css}"/>
+</head>
+<body>
+<form class="contact_form" action="#" method="post" name="contact_form">
+    <ul>
+        <li>
+            <h2>Төмендегі форманы толтырыңыз!</h2>
+            <span class="required_notification">* Міндетті түрде толтыру керек!</span>
+        </li>
+        <li>
+            <label for="name">Имя:</label>
+            <input type="text" id="name"  placeholder="Есімі" required />
+        </li>
+        <li>
+            <label for="email">Email:</label>
+            <input type="email" id="email"  name="email" placeholder="Пошта@gmail.com" required />
+            <span class="form_hint">Proper format "name@something.com"</span>
+        </li>
+
+        <li>
+            <label for="message">Ваше сообщение:</label>
+            <textarea id="message" name="message" cols="40" rows="6" required ></textarea>
+        </li>
+        <li>
+            <button class="submit" type="submit">Тапсырыс беру</button>
+        </li>
+    </ul>
+</form>
+</body>
+</html>

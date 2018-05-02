@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Динара</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" th:href="@{/css/mystyles.css}"/>
+</head>
+<body>
+<nav class="navbar fixed-top navbar-dark bg-dark navbar-expand-md" id="header">
+    <a class="navbar-brand" href="#">BRAND</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Меню
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a href="/" class="dropdown-item">Все</a>
+                    <a class="dropdown-item" href="#"
+                       th:each="category : ${categoryList}"
+                       th:text="${category.title}"
+                       th:href="${category.getId()}"
+                       th:id="${category.getId()}"
+                    ></a>
+                </div>
+            </li>
+
+            <li class="nav-item" style="padding: 5px;">
+                <a class="nav-link" th:href="@{/delivery}">Мекен-жайы <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item" style="padding: 5px;">
+                <a class="nav-link" th:href="@{/order}">Тапсырыс беру <span class="sr-only">(current)</span></a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="container products-list">
+    <h4 th:if="${categoryOpt}" th:text="${categoryOpt.get().getTitle()}"></h4>
+    <div class="row">
+        <div class="col-md-4" th:each="dish : ${dishList}" style="display: inline">
+            <a class="card border-0 mb-3 mb-md-0">
+                <div class="card-img-top">
+                    <img th:src="@{/img/kras.jpg}"
+
+                         alt="App landing" class="img-fluid">
+
+                </div>
+                <div class="card-body">
+                    <h4 class="card-title" th:text="${dish.title}">
+                    </h4>
+                    <p class="card-text text-muted" th:text="${dish.price}+' тг'">
+                    </p>
+                </div> <div class="card-img-top">
+                    <img th:src="@{/img/01.jpg}"
+
+                         alt="App landing" class="img-fluid">
+
+                </div>
+                <div class="card-body">
+                    <h4 class="card-title" th:text="${dish.title}">
+                    </h4>
+                    <p class="card-text text-muted" th:text="${dish.price}+' тг'">
+                    </p>
+                </div> <div class="card-img-top">
+                    <img th:src="@{/img/plov.png}"
+
+                         alt="App landing" class="img-fluid">
+
+                </div>
+                <div class="card-body">
+                    <h4 class="card-title" th:text="${dish.title}">
+                    </h4>
+                    <p class="card-text text-muted" th:text="${dish.price}+' тг'">
+                    </p>
+                </div>
+
+                <div class="card-img-top">
+                    <img th:src="@{/img/02.jpg}"
+
+                         alt="App landing" class="img-fluid">
+
+                </div>
+                <div class="card-body">
+                    <h4 class="card-title" th:text="${dish.title}">
+                    </h4>
+                    <p class="card-text text-muted" th:text="${dish.price}+' тг'">
+                    </p>
+                </div>
+            </a>
+
+    </div>
+</div>
+
+<script type="text/javascript" th:src="@{/js/jquery-3.3.1.js}"></script>
+<script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/myscript.js}"></script>
+</body>
+</html>

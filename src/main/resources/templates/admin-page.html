@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta id="_csrf" name="_csrf" th:content="${_csrf.token}"/>
+    <meta id="_csrf_header" name="_csrf_header" th:content="${_csrf.headerName}"/>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" th:href="@{/css/mystyles.css}"/>
+</head>
+<body>
+
+<div class="container">
+    <h4>Список блюд</h4>
+    <div class="alert alert-danger hidden" id="dish-form-alert">
+        Some field(s) is(are) empty
+    </div>
+    <form id="new-dish">
+        <div class="form-group">
+            <input type="text" id="title-input" class="form-control form-control-sm" placeholder="Название">
+        </div>
+        <div class="form-group">
+            <input type="number" id="price-input" class="form-control form-control-sm" placeholder="Цена">
+        </div>
+        <div class="form-group">
+            <label>
+                <select class="form-control form-control-sm" id="category-input">
+                    <option th:each="category : ${categoryList}"
+                            th:value="${category.title}"
+                            th:text="${category.title}"></option>
+                </select>
+            </label>
+        </div>
+        <input type="submit"
+               class="btn btn-success" value="Добавить блюдо" />
+    </form>
+    <br>
+    <div>
+        <button class="btn btn-primary">
+            <a th:href="@{/admin/categories}" style="color: #fff;">Категории</a>
+        </button>
+        <button class="btn btn-danger">
+            <a th:href="@{/logout}" style="color: #fff;">Выйти из Админ панели</a>
+        </button>
+    </div>
+
+    <div class="container">
+        <ul id="dish-list"></ul>
+    </div>
+
+</div>
+
+<script type="text/javascript" th:src="@{/js/jquery-3.3.1.js}"></script>
+<script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/myscript.js}"></script>
+</body>
+</html>
