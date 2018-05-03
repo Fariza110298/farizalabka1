@@ -12,16 +12,16 @@
 <body>
 
 <div class="container">
-    <h4>Список блюд</h4>
+    <h4>Тізімді қосу</h4>
     <div class="alert alert-danger hidden" id="dish-form-alert">
         Some field(s) is(are) empty
     </div>
     <form id="new-dish">
         <div class="form-group">
-            <input type="text" id="title-input" class="form-control form-control-sm" placeholder="Название">
+            <input type="text" id="title-input" class="form-control form-control-sm" placeholder="Тағам аты">
         </div>
         <div class="form-group">
-            <input type="number" id="price-input" class="form-control form-control-sm" placeholder="Цена">
+            <input type="number" id="price-input" class="form-control form-control-sm" placeholder="Бағасы">
         </div>
         <div class="form-group">
             <label>
@@ -33,19 +33,19 @@
             </label>
         </div>
         <input type="submit"
-               class="btn btn-success" value="Добавить блюдо" />
+               class="btn btn-success" style="color: black" value="Қосу" />
     </form>
     <br>
     <div>
         <button class="btn btn-primary">
-            <a th:href="@{/admin/categories}" style="color: #fff;">Категории</a>
+            <a th:href="@{/admin/categories}" style="color: black;">Тип</a>
         </button>
         <button class="btn btn-danger">
-            <a th:href="@{/logout}" style="color: #fff;">Выйти из Админ панели</a>
+            <a th:href="@{/logout}" style="color: black;">Шығу</a>
         </button>
     </div>
 
-    <div class="container">
+    <div style="color: black" class="container">
         <ul id="dish-list"></ul>
     </div>
 
